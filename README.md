@@ -1,3 +1,2 @@
 # DailyProgrammer
-test redone
-test 2
+Practice makes perfect!
