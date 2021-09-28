@@ -33,8 +33,6 @@ public class PancakeSort {
 	public static void pSort (int[] nums) {
 		for (int size=nums.length;size>1;size--) {
 			int maxI = findMax(nums,size);
-			System.out.println("Max Index = " + maxI);
-			System.out.println("i = " + size);
 			if (maxI!=size-1) {
 				flipFront(nums,maxI);
 				flipFront(nums,size-1);
