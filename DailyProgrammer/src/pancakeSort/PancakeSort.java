@@ -30,7 +30,7 @@ public class PancakeSort {
 		}
 	}
 	
-	public static int pSort (int[] nums) {
+	public static void pSort (int[] nums) {
 		for (int size=nums.length;size>1;size--) {
 			int maxI = findMax(nums,size);
 			System.out.println("Max Index = " + maxI);
@@ -40,7 +40,6 @@ public class PancakeSort {
 				flipFront(nums,size-1);
 			}
 		}
-		return 0;
 	}
 	
 	static int findMax (int nums[], int n) {
