@@ -32,7 +32,11 @@ public class MHData {
 		System.out.print("Wins: " + winAmount + "  ");
 		System.out.println("Loses: " + loseAmount);
 		
-		winRate = ((double)winAmount)/((double)loseAmount);
+		if (loseAmount == 0) {
+			winRate = (double) winAmount;
+		} else {
+			winRate = ((double)winAmount)/((double)loseAmount);
+		}
 		
 		System.out.print("Win rate: ");
 		System.out.format("%.2f",winRate);

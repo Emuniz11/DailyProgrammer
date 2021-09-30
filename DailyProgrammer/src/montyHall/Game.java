@@ -24,6 +24,7 @@ public class Game {
 	private int prizeIndex;
 	private int r2;
 	private int[] data;
+	private Scanner sc;
 	
 	Game () {
 		doors = new Door[3];
@@ -36,6 +37,7 @@ public class Game {
 		prizeIndex = 0;
 		r2 = 0;
 		data = new int[2];
+		sc = new Scanner(System.in);
 	}
 	
 	Game (Boolean c, int dc) {
@@ -75,6 +77,10 @@ public class Game {
 	
 	int[] getData () {
 		return data;
+	}
+	
+	void scClose () {
+		sc.close();
 	}
 	
 	void gameStart () {
@@ -127,9 +133,7 @@ public class Game {
 	}
 	
 	void gameStartv2 () {
-		
-		@SuppressWarnings("resource")
-		Scanner sc = new Scanner(System.in);
+
 		System.out.println("Please choose a door... 1/2/3");
 
 		try {
@@ -155,8 +159,6 @@ public class Game {
 		} catch (Exception e) {
 			System.out.println("Invalid choice. Please try again.");
 		}
-		
-//		sc.close();
 		
 		if (changeMind==false) {
 			if (doorChoice==prizeIndex) {
