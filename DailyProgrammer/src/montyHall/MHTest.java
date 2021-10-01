@@ -8,7 +8,7 @@ package montyHall;
 
 public class MHTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws MHException {
 		MHData d0 = new MHData();
 		MHData d1 = new MHData();
 		MHData d3 = new MHData();

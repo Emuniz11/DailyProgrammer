@@ -15,6 +15,7 @@ package montyHall;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Game {
 	private Door[] doors;
@@ -132,16 +133,28 @@ public class Game {
 		System.out.println("------ENDGAME-----");
 	}
 	
-	void gameStartv2 () {
+	void gameStartv2 () throws MHException {
 
-		System.out.println("Please choose a door... 1/2/3");
-
-		try {
-			doorChoice = sc.nextInt();
-			doorChoice--;
-		} catch (NumberFormatException e){
-			System.out.println("Invalid door choice. Please try again.");
-		}
+		do {
+			System.out.println("Please choose a door... 1/2/3");
+			try {
+				doorChoice = sc.nextInt();
+				if (doorChoice>3 || doorChoice<1) {
+					throw new MHException("Door choice invalid");
+				}
+				break;
+			}
+			catch (MHException e){
+				//System.out.println(e);
+				System.out.println("Door choice invalid");
+			}
+			catch (InputMismatchException e) {
+				System.out.println("Your choice is not a number...");
+			}
+			sc.nextLine();
+		} while (true);
+		
+		doorChoice--;
 		
 		randPrize();
 		doors[prizeIndex].placePrize();
@@ -153,12 +166,24 @@ public class Game {
 		
 		System.out.println("Ok I have opened door " + r2++);
 		
-		System.out.println("Would you like to change your door choice? True/False");
-		try {
-			changeMind = sc.nextBoolean();
-		} catch (Exception e) {
-			System.out.println("Invalid choice. Please try again.");
-		}
+		do {
+			System.out.println("Would you like to change your door choice? True/False");
+			try {
+				changeMind = sc.nextBoolean();
+				if (changeMind==null) {
+				throw new MHException("Anwser is invalid");
+				}
+				break;
+			}
+			catch (MHException e){
+				//System.out.println(e);
+				System.out.println("Anwser is invalid");
+			}
+			catch (InputMismatchException e) {
+				System.out.println("Your choice is not true or false...");
+			}
+			sc.nextLine();
+		} while (true);
 		
 		if (changeMind==false) {
 			if (doorChoice==prizeIndex) {
