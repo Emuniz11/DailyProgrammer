@@ -164,7 +164,7 @@ public class Game {
 		
 		openRand();
 		
-		System.out.println("Ok I have opened door " + r2++);
+		System.out.println("Ok I have opened door " + (r2+=1));
 		
 		do {
 			System.out.println("Would you like to change your door choice? True/False");
